@@ -1,27 +1,42 @@
-import Vue from 'vue'
-import VueRouter, { RouteConfig } from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from 'vue';
+import VueRouter, { RouteConfig } from 'vue-router';
+import Connection from '@/views/Connection.vue';
+import Message from '@/views/Message.vue';
+import store from '@/store';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Connection',
+    component: Connection,
+    beforeEnter: (to, from, next) => {
+      store.commit('appbar/visible', false)
+      next();
+    }
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/message',
+    name: 'Message',
+    component: Message,
+    beforeEnter: (to, from, next) => {
+      store.commit('appbar/visible', true);
+      next();
+    }
   }
-]
+];
 
 const router = new VueRouter({
   routes
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.name !== 'Connection' && !store.getters['connection/valid']) {
+    next({ name: 'Connection' });
+  } else {
+    next();
+  }
 })
 
-export default router
+export default router;
