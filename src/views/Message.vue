@@ -4,7 +4,6 @@
       v-model="message"
       label="Message"
       placeholder="Say hi 👋"
-      hide-details="auto"
       class="flex-grow-0"
       filled
       shaped
