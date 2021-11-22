@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5a948a304faf0e0862c4",
+    "revision": "2f286546a1024375752c",
     "url": "/socket-communicator/css/app.6027062f.css"
   },
   {
@@ -16,12 +16,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/socket-communicator/img/pattern.9ef0bfdf.svg"
   },
   {
-    "revision": "5d1ded608c0f24771512234d434a8250",
+    "revision": "330c77f39214ec158ba8ae3ef3939fd0",
     "url": "/socket-communicator/index.html"
   },
   {
-    "revision": "5a948a304faf0e0862c4",
-    "url": "/socket-communicator/js/app.0025dc1e.js"
+    "revision": "2f286546a1024375752c",
+    "url": "/socket-communicator/js/app.5cb2f8fb.js"
   },
   {
     "revision": "9119cdc082d5b4e3fbb7",
