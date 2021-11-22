@@ -13,8 +13,9 @@
       <v-spacer/>
 
       <v-btn
-        icon
+        class="mr-0"
         color="red"
+        icon
       >
         <v-icon>mdi-connection</v-icon>
       </v-btn>

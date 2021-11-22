@@ -1,14 +1,21 @@
 <template>
   <v-layout fill-height column justify-end>
-    <v-text-field
-      v-model="message"
-      label="Message"
-      placeholder="Say hi"
-      hide-details="auto"
-      class="flex-grow-0 mb-4"
-      filled
-      shaped
-    ></v-text-field>
+    <v-toolbar
+      class="flex-grow-0 mx-4 mb-4"
+      rounded='xl'
+      height="64"
+    >
+      <v-text-field
+        label="Message"
+        placeholder="Say hi"
+        append-outer-icon="mdi-send"
+        hide-details
+        single-line
+        rounded
+        filled
+        dense
+      ></v-text-field>
+    </v-toolbar>
   </v-layout>
 </template>
 
