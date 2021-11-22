@@ -43,8 +43,7 @@ const connection = {
 
 export default new Vuex.Store({
   state: {
-    url: '',
-    port: null,
+    
   },
   getters: {
 
