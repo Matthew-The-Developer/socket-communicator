@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { io } from "socket.io-client";
 
 Vue.use(Vuex)
 
@@ -39,21 +40,25 @@ const connection = {
   actions: {
 
   },
-}
+};
 
 export default new Vuex.Store({
   state: {
-    
+    socket: null,
   },
   getters: {
 
   },
   mutations: {
+    socket: (state: any, socket: any) => state.socket = socket,
   },
   actions: {
+    createCoonection({ commit }) {
+      commit('socket', null);
+    }
   },
   modules: {
     appbar,
     connection,
   }
-})
+});

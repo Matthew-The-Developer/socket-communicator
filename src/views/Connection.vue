@@ -8,7 +8,7 @@
       <v-col>
         <v-card
           max-width="560"
-          class="mx-auto"
+          class="mx-auto my-auto"
           rounded="xl"
           outlined
         >
@@ -53,6 +53,15 @@
             </v-form>
           </v-card-text>
         </v-card>
+
+        <v-alert
+          v-if="false" 
+          type="error"
+          max-width="560"
+          class="mx-auto mt-4"
+        >
+          I'm an error alert.
+        </v-alert>
       </v-col>
     </v-row>
   </v-container>
@@ -114,12 +123,23 @@ export default Vue.extend({
 <style lang="scss">
 @import '~vuetify/src/styles/settings/_variables';
 
-
 .background {
   background-image: url('~@/assets/pattern.svg');
-  background-position: 0 0;
   background-size: 100%;
   background-repeat: repeat;
+}
+
+.background-1 {
+  background-color: rgba($color: #40aa26, $alpha: 0.5);
+}
+.background-2 {
+  background-color: rgba($color: #265baa, $alpha: 0.5);
+}
+.background-3 {
+  background-color: rgba($color: #a626aa, $alpha: 0.5);
+}
+.background-4 {
+  background-color: rgba($color: #aa7c26, $alpha: 0.5);
 }
 
 @media #{map-get($display-breakpoints, 'xs-only')} {
