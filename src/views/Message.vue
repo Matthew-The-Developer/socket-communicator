@@ -3,8 +3,9 @@
     <v-text-field
       v-model="message"
       label="Message"
-      placeholder="Say hi 👋"
-      class="flex-grow-0"
+      placeholder="Say hi"
+      hide-details="auto"
+      class="flex-grow-0 mb-4"
       filled
       shaped
     ></v-text-field>
