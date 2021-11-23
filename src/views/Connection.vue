@@ -39,6 +39,8 @@
                 dense
               ></v-text-field>
 
+              <p>{{ $store.getters['install'] }}</p>
+
               <v-btn
                 @click="connect()"
                 :disabled="!valid"
@@ -51,6 +53,7 @@
               >
                 connect
               </v-btn>
+
             </v-form>
           </v-card-text>
         </v-card>

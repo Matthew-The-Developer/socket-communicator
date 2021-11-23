@@ -65,9 +65,11 @@ export default Vue.extend({
   created () {
     window.addEventListener('beforeinstallprompt', (e: Event) => {
       e.preventDefault();
+      console.log('hasn\'t been installed');
       this.$store.commit('install', e);
     });
     window.addEventListener('appinstalled', () => {
+      console.log('has been installed');
       this.$store.commit('install', null);
     });
   },
