@@ -44,7 +44,7 @@ const connection = {
 
 export default new Vuex.Store({
   state: {
-    install: null,
+    install: null as any | null,
     socket: null,
     error: false,
     loading: false,

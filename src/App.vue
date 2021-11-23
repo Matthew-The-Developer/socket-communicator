@@ -63,7 +63,7 @@ export default Vue.extend({
   },
 
   created () {
-    window.addEventListener('beforeinstallprompt', (e: any) => {
+    window.addEventListener('beforeinstallprompt', (e: Event) => {
       e.preventDefault();
       this.$store.commit('install', e);
     });
