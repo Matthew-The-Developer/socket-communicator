@@ -56,6 +56,18 @@
         </v-card>
       </v-col>
     </v-row>
+
+    <v-btn
+      v-if="$store.getters['install']"
+      @click="install()"
+      elevation="0"
+      fab
+      fixed
+      top
+      right
+    >
+      <v-icon color="primary">mdi-download-outline</v-icon>
+    </v-btn>
   </v-container>
 </template>
 
@@ -105,6 +117,9 @@ export default Vue.extend({
   },
 
   methods: {
+    install (): void {
+      this.$store.dispatch('promptInstall');
+    },
     connect (): void {
       router.push({ name: 'Message' });
     }

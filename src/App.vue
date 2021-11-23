@@ -60,6 +60,16 @@ export default Vue.extend({
         this.$store.commit('error', value);
       }
     }
-  }
+  },
+
+  created () {
+    window.addEventListener('beforeinstallprompt', (e: any) => {
+      e.preventDefault();
+      this.$store.commit('install', e);
+    });
+    window.addEventListener('appinstalled', () => {
+      this.$store.commit('install', null);
+    });
+  },
 });
 </script>

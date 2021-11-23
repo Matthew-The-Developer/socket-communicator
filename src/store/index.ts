@@ -44,21 +44,29 @@ const connection = {
 
 export default new Vuex.Store({
   state: {
+    install: null,
     socket: null,
     error: false,
     loading: false,
   },
   getters: {
+    install: (state: any) => state.install,
     error: (state: any) => state.error,
     loading: (state: any) => state.loading,
   },
   mutations: {
+    install: (state: any, prompt: any) => state.install = prompt,
     socket: (state: any, socket: any) => state.socket = socket,
     error: (state: any, error: boolean) => state.error = error,
   },
   actions: {
-    createCoonection({ commit }) {
+    createCoonection ({ commit }) {
       commit('socket', null);
+    },
+    async promptInstall ({ commit, state }) {
+      if (state.install) {
+        state.install.prompt();
+      }
     }
   },
   modules: {
