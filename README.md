@@ -15,6 +15,11 @@ npm run serve
 npm run build
 ```
 
+### Deploys to Github Pages
+```
+git subtree push --prefix dist origin gh-pages
+```
+
 ### Lints and fixes files
 ```
 npm run lint
