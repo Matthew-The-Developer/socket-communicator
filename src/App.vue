@@ -24,6 +24,22 @@
     <v-main>
       <router-view/>
     </v-main>
+
+    <v-footer 
+      v-if="error"
+      class="pa-0"
+      app 
+    >
+      <v-alert
+        v-model="error"
+        type="error"
+        class="flex-grow-1 ma-0"
+        rounded="0"
+        dismissible
+      >
+        I'm an error alert.
+      </v-alert>
+    </v-footer>
   </v-app>
 </template>
 
@@ -34,5 +50,16 @@ export default Vue.extend({
   name: 'App',
 
   data: () => ({}),
+
+  computed: {
+    error: {
+      get () {
+        return this.$store.getters['error'];
+      },
+      set (value: boolean) {
+        this.$store.commit('error', value);
+      }
+    }
+  }
 });
 </script>

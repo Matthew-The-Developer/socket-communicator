@@ -45,12 +45,15 @@ const connection = {
 export default new Vuex.Store({
   state: {
     socket: null,
+    error: true,
+    loading: false,
   },
   getters: {
-
+    error: (state: any) => state.error,
   },
   mutations: {
     socket: (state: any, socket: any) => state.socket = socket,
+    error: (state: any, error: boolean) => state.error = error,
   },
   actions: {
     createCoonection({ commit }) {

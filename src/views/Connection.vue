@@ -53,15 +53,6 @@
             </v-form>
           </v-card-text>
         </v-card>
-
-        <v-alert
-          v-if="false" 
-          type="error"
-          max-width="560"
-          class="mx-auto mt-4"
-        >
-          I'm an error alert.
-        </v-alert>
       </v-col>
     </v-row>
   </v-container>
