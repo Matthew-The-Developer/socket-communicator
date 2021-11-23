@@ -42,6 +42,7 @@
               <v-btn
                 @click="connect()"
                 :disabled="!valid"
+                :loading="$store.getters['loading']"
                 color="primary"
                 rounded
                 block

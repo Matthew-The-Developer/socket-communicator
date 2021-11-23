@@ -45,11 +45,12 @@ const connection = {
 export default new Vuex.Store({
   state: {
     socket: null,
-    error: true,
+    error: false,
     loading: false,
   },
   getters: {
     error: (state: any) => state.error,
+    loading: (state: any) => state.loading,
   },
   mutations: {
     socket: (state: any, socket: any) => state.socket = socket,
