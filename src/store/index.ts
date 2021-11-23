@@ -44,18 +44,21 @@ const connection = {
 
 export default new Vuex.Store({
   state: {
-    install: null as any | null,
+    installed: false,
+    installPrompt: null as any | null,
     socket: null,
     error: false,
     loading: false,
   },
   getters: {
-    install: (state: any) => state.install,
+    installed: (state: any) => state.installed,
+    installPrompt: (state: any) => state.installPrompt,
     error: (state: any) => state.error,
     loading: (state: any) => state.loading,
   },
   mutations: {
-    install: (state: any, prompt: any) => state.install = prompt,
+    installed: (state: any, installed: boolean) => state.installed = installed,
+    installPrompt: (state: any, prompt: any) => state.installPrompt = prompt,
     socket: (state: any, socket: any) => state.socket = socket,
     error: (state: any, error: boolean) => state.error = error,
   },
@@ -64,8 +67,8 @@ export default new Vuex.Store({
       commit('socket', null);
     },
     async promptInstall ({ commit, state }) {
-      if (state.install) {
-        state.install.prompt();
+      if (state.installPrompt) {
+        state.installPrompt.prompt();
       }
     }
   },

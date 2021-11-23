@@ -15,7 +15,7 @@
           <v-card-title class="justify-center text-h5 font-weight-black">Connect</v-card-title>
           <v-card-subtitle class="text-center">Socketio</v-card-subtitle>
 
-          <v-card-text>
+          <v-card-text class="pb-0">
             <v-form v-model="valid">
               <v-text-field
                 v-model="url"
@@ -42,33 +42,31 @@
               <v-btn
                 @click="connect()"
                 :disabled="!valid"
+                :dark="valid"
                 :loading="$store.getters['loading']"
                 color="primary"
                 rounded
                 block
                 large
-                :dark="valid"
               >
                 connect
               </v-btn>
-
             </v-form>
           </v-card-text>
+        
+          <v-card-actions>
+            <v-btn
+              v-if="!$store.getters['installed']"
+              color="primary"
+              class="mx-auto"
+              text
+            >
+              Want to install?
+            </v-btn>
+          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
-
-    <v-btn
-      v-if="$store.getters['install']"
-      @click="install()"
-      elevation="0"
-      fab
-      fixed
-      top
-      right
-    >
-      <v-icon color="primary">mdi-download-outline</v-icon>
-    </v-btn>
   </v-container>
 </template>
 

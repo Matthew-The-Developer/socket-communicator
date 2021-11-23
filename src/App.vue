@@ -70,7 +70,7 @@ export default Vue.extend({
     });
     window.addEventListener('appinstalled', () => {
       console.log('has been installed');
-      this.$store.commit('install', null);
+      this.$store.commit('installed', true);
     });
   },
 });
