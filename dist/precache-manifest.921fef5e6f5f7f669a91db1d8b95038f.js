@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e4b6dbc744de7ea5104a",
+    "revision": "885e08b40c5873d66932",
     "url": "/socket-communicator/css/app.f9e63e9c.css"
   },
   {
@@ -16,19 +16,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/socket-communicator/img/pattern.9ef0bfdf.svg"
   },
   {
-    "revision": "edda0b71c78a3543e66c985adb6505bf",
+    "revision": "5f81a3b1ab45a3d1733690fded989919",
     "url": "/socket-communicator/index.html"
   },
   {
-    "revision": "e4b6dbc744de7ea5104a",
-    "url": "/socket-communicator/js/app.f71e72e6.js"
+    "revision": "885e08b40c5873d66932",
+    "url": "/socket-communicator/js/app.75cd890e.js"
   },
   {
     "revision": "4755f5164d6b5af0bb07",
     "url": "/socket-communicator/js/chunk-vendors.204c0407.js"
   },
   {
-    "revision": "23204bc6e121ce770b8d93531ba0eb82",
+    "revision": "b121ed63d6470c05265fe27a4666df4a",
     "url": "/socket-communicator/manifest.json"
   },
   {
