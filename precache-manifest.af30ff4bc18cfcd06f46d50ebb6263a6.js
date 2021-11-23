@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ff739cd2d48547c79e7f",
-    "url": "/socket-communicator/css/app.6027062f.css"
+    "revision": "e4b6dbc744de7ea5104a",
+    "url": "/socket-communicator/css/app.f9e63e9c.css"
   },
   {
-    "revision": "267bb9799de5168a49d3",
-    "url": "/socket-communicator/css/chunk-vendors.18b04a77.css"
+    "revision": "4755f5164d6b5af0bb07",
+    "url": "/socket-communicator/css/chunk-vendors.cf4a341d.css"
   },
   {
     "revision": "b5f9b7953c04b8fea292663377f63b5c",
@@ -16,16 +16,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/socket-communicator/img/pattern.9ef0bfdf.svg"
   },
   {
-    "revision": "dcc219f851182dcb714bebdb07b2644f",
+    "revision": "edda0b71c78a3543e66c985adb6505bf",
     "url": "/socket-communicator/index.html"
   },
   {
-    "revision": "ff739cd2d48547c79e7f",
-    "url": "/socket-communicator/js/app.94dba2c1.js"
+    "revision": "e4b6dbc744de7ea5104a",
+    "url": "/socket-communicator/js/app.f71e72e6.js"
   },
   {
-    "revision": "267bb9799de5168a49d3",
-    "url": "/socket-communicator/js/chunk-vendors.c5d4dddd.js"
+    "revision": "4755f5164d6b5af0bb07",
+    "url": "/socket-communicator/js/chunk-vendors.204c0407.js"
   },
   {
     "revision": "23204bc6e121ce770b8d93531ba0eb82",
