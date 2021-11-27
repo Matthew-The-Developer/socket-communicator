@@ -57,6 +57,7 @@
           <v-card-actions>
             <v-btn
               v-if="!$store.getters['installed']"
+              @click="install()"
               color="primary"
               class="mx-auto"
               text
@@ -67,15 +68,21 @@
         </v-card>
       </v-col>
     </v-row>
+    <Install/>
   </v-container>
 </template>
 
 <script lang="ts">
-import router from '@/router';
 import Vue from 'vue';
+import router from '@/router';
+import Install from '@/dialogs/Install.vue';
 
 export default Vue.extend({
   name: 'Connection',
+
+  components: {
+    Install,
+  },
 
   data: () => ({
     urlRules: [
@@ -117,7 +124,7 @@ export default Vue.extend({
 
   methods: {
     install (): void {
-      this.$store.dispatch('promptInstall');
+      this.$store.dispatch('dialogs/open', 'install');
     },
     connect (): void {
       router.push({ name: 'Message' });

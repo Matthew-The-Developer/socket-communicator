@@ -66,7 +66,7 @@ export default Vue.extend({
     window.addEventListener('beforeinstallprompt', (e: Event) => {
       e.preventDefault();
       console.log('hasn\'t been installed');
-      this.$store.commit('install', e);
+      this.$store.commit('installPrompt', e);
     });
     window.addEventListener('appinstalled', () => {
       console.log('has been installed');

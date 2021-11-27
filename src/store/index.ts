@@ -42,6 +42,24 @@ const connection = {
   },
 };
 
+const dialogs = {
+  namespaced: true,
+  state: () => ({
+    install: false,
+  }),
+  getters: {
+    install: (state: any) => state.install,
+  },
+  mutations: {
+    install: (state: any, value: boolean) => state.install = value,
+  },
+  actions: {
+    async open ({ commit }, dialog: string) {
+      commit(dialog, true);
+    }
+  }
+};
+
 export default new Vuex.Store({
   state: {
     installed: false,
@@ -75,5 +93,6 @@ export default new Vuex.Store({
   modules: {
     appbar,
     connection,
+    dialogs
   }
 });
