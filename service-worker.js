@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/socket-communicator/precache-manifest.921fef5e6f5f7f669a91db1d8b95038f.js"
+  "/socket-communicator/precache-manifest.44b29f5499235224e6579f3fc5af4a19.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "socket-communicator"});
