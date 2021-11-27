@@ -1,13 +1,13 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import { io } from "socket.io-client";
+import Vue from 'vue';
+import Vuex, { Module } from 'vuex';
+import { AppBarState, AppState, ConnectionState, DialogState } from '@/types';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
-const appbar = {
+const appbar: Module<AppBarState, AppState> = {
   namespaced: true,
   state: () => ({
-    visible: false as boolean,
+    visible: false,
   }),
   getters: {
     visible: (state: any) => state.visible,
@@ -20,12 +20,14 @@ const appbar = {
   },
 };
 
-const connection = {
+const connection: Module<ConnectionState, AppState> = {
   namespaced: true,
   state: () => ({
     valid: false,
     url: '',
     port: '',
+    error: false,
+    loading: false,
   }),
   getters: {
     valid: (state: any) => state.valid,
@@ -42,7 +44,7 @@ const connection = {
   },
 };
 
-const dialogs = {
+const dialogs: Module<DialogState, AppState> = {
   namespaced: true,
   state: () => ({
     install: false,
@@ -60,30 +62,20 @@ const dialogs = {
   }
 };
 
-export default new Vuex.Store({
+export default new Vuex.Store<AppState>({
   state: {
     installed: false,
     installPrompt: null as any | null,
-    socket: null,
-    error: false,
-    loading: false,
   },
   getters: {
     installed: (state: any) => state.installed,
     installPrompt: (state: any) => state.installPrompt,
-    error: (state: any) => state.error,
-    loading: (state: any) => state.loading,
   },
   mutations: {
     installed: (state: any, installed: boolean) => state.installed = installed,
     installPrompt: (state: any, prompt: any) => state.installPrompt = prompt,
-    socket: (state: any, socket: any) => state.socket = socket,
-    error: (state: any, error: boolean) => state.error = error,
   },
   actions: {
-    createCoonection ({ commit }) {
-      commit('socket', null);
-    },
     async promptInstall ({ commit, state }) {
       if (state.installPrompt) {
         state.installPrompt.prompt();
