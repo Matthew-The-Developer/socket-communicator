@@ -18,7 +18,8 @@
       </v-toolbar>
 
       <v-card-text>
-        {{ navigator.userAgent }}
+        <p>OS: {{ $store.getters['os'] }}</p>
+        <p>{{ navigator.userAgent }}</p>
       </v-card-text>
     </v-card>
   </v-dialog>
@@ -33,6 +34,9 @@ export default Vue.extend({
   data: () => ({
     navigator,
     window,
+    deviceInfo: {
+      isChrome: (): boolean => navigator.userAgent.includes('Chrome'),
+    }
   }),
 
   computed: {
@@ -43,7 +47,7 @@ export default Vue.extend({
       set (value: boolean) {
         this.$store.commit('dialogs/install', value);
       }
-    }
+    },
   }
 })
 </script>

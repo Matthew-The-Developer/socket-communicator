@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex, { Module } from 'vuex';
 import { AppBarState, AppState, ConnectionState, DialogState } from '@/types';
+import { os } from '@/models/OperatingSystem';
 
 Vue.use(Vuex);
 
@@ -64,18 +65,41 @@ const dialogs: Module<DialogState, AppState> = {
 
 export default new Vuex.Store<AppState>({
   state: {
+    os: '',
+    browser: '',
     installed: false,
     installPrompt: null as any | null,
   },
   getters: {
-    installed: (state: any) => state.installed,
-    installPrompt: (state: any) => state.installPrompt,
+    os: (state: AppState) => state.os,
+    installed: (state: AppState) => state.installed,
+    installPrompt: (state: AppState) => state.installPrompt,
   },
   mutations: {
-    installed: (state: any, installed: boolean) => state.installed = installed,
-    installPrompt: (state: any, prompt: any) => state.installPrompt = prompt,
+    os: (state: AppState, os: string) => state.os = os,
+    installed: (state: AppState, installed: boolean) => state.installed = installed,
+    installPrompt: (state: AppState, prompt: any) => state.installPrompt = prompt,
   },
   actions: {
+    getOS ({ commit }) {
+      const header = [
+        navigator.platform,
+        navigator.userAgent,
+        navigator.appVersion,
+        navigator.vendor
+      ];
+
+      const agent = header.join(' ');
+
+      os.forEach(operatingSystem => {
+        const regex = new RegExp(operatingSystem.value, 'i');
+        if (regex.test(agent)) {
+          commit('os', operatingSystem.name);
+          return;
+        }
+      });
+      // commit('os', 'unknown');
+    },
     async promptInstall ({ commit, state }) {
       if (state.installPrompt) {
         state.installPrompt.prompt();

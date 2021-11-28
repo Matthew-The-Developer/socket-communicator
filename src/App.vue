@@ -72,6 +72,7 @@ export default Vue.extend({
       console.log('has been installed');
       this.$store.commit('installed', true);
     });
+    this.$store.dispatch('getOS');
   },
 });
 </script>
