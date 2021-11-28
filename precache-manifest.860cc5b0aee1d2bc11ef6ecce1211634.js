@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "38fcee18c0414c156244",
+    "revision": "23f43b23337b5c30e39e",
     "url": "/socket-communicator/css/app.f9e63e9c.css"
   },
   {
-    "revision": "41f50c09f6c44ab11a55",
+    "revision": "fd8cb72b1110f5e8da71",
     "url": "/socket-communicator/css/chunk-vendors.ffd2c1b6.css"
   },
   {
@@ -16,16 +16,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/socket-communicator/img/pattern.9ef0bfdf.svg"
   },
   {
-    "revision": "b04966069be6b0617e50a6ae1c0d0607",
+    "revision": "c8ce9988cdf774b9d449522ec12c2a3a",
     "url": "/socket-communicator/index.html"
   },
   {
-    "revision": "38fcee18c0414c156244",
-    "url": "/socket-communicator/js/app.e8e59641.js"
+    "revision": "23f43b23337b5c30e39e",
+    "url": "/socket-communicator/js/app.877b835f.js"
   },
   {
-    "revision": "41f50c09f6c44ab11a55",
-    "url": "/socket-communicator/js/chunk-vendors.5c7e470e.js"
+    "revision": "fd8cb72b1110f5e8da71",
+    "url": "/socket-communicator/js/chunk-vendors.08500035.js"
   },
   {
     "revision": "b121ed63d6470c05265fe27a4666df4a",
