@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex, { Module } from 'vuex';
 import { AppBarState, AppState, ConnectionState, DialogState } from '@/types';
 import { os } from '@/models/OperatingSystem';
+import { browser } from '@/models/Browser';
 
 Vue.use(Vuex);
 
@@ -11,10 +12,10 @@ const appbar: Module<AppBarState, AppState> = {
     visible: false,
   }),
   getters: {
-    visible: (state: any) => state.visible,
+    visible: (state: AppBarState) => state.visible,
   },
   mutations: {
-    visible: (state: any, visible: boolean) => state.visible = visible,
+    visible: (state: AppBarState, visible: boolean) => state.visible = visible,
   },
   actions: {
 
@@ -31,14 +32,14 @@ const connection: Module<ConnectionState, AppState> = {
     loading: false,
   }),
   getters: {
-    valid: (state: any) => state.valid,
-    url: (state: any) => state.url,
-    port: (state: any) => state.port,
+    valid: (state: ConnectionState) => state.valid,
+    url: (state: ConnectionState) => state.url,
+    port: (state: ConnectionState) => state.port,
   },
   mutations: {
-    valid: (state: any, validity: boolean) => state.valid = validity,
-    url: (state: any, url: string) => state.url = url,
-    port: (state: any, port: string) => state.port = port,
+    valid: (state: ConnectionState, validity: boolean) => state.valid = validity,
+    url: (state: ConnectionState, url: string) => state.url = url,
+    port: (state: ConnectionState, port: string) => state.port = port,
   },
   actions: {
 
@@ -51,10 +52,10 @@ const dialogs: Module<DialogState, AppState> = {
     install: false,
   }),
   getters: {
-    install: (state: any) => state.install,
+    install: (state: DialogState) => state.install,
   },
   mutations: {
-    install: (state: any, value: boolean) => state.install = value,
+    install: (state: DialogState, value: boolean) => state.install = value,
   },
   actions: {
     async open ({ commit }, dialog: string) {
@@ -72,11 +73,13 @@ export default new Vuex.Store<AppState>({
   },
   getters: {
     os: (state: AppState) => state.os,
+    browser: (state: AppState) => state.browser,
     installed: (state: AppState) => state.installed,
     installPrompt: (state: AppState) => state.installPrompt,
   },
   mutations: {
     os: (state: AppState, os: string) => state.os = os,
+    browser: (state: AppState, browser: string) => state.browser = browser,
     installed: (state: AppState, installed: boolean) => state.installed = installed,
     installPrompt: (state: AppState, prompt: any) => state.installPrompt = prompt,
   },
@@ -90,15 +93,44 @@ export default new Vuex.Store<AppState>({
       ];
 
       const agent = header.join(' ');
-
+      
+      let found = null;
       os.forEach(operatingSystem => {
         const regex = new RegExp(operatingSystem.value, 'i');
         if (regex.test(agent)) {
-          commit('os', operatingSystem.name);
-          return;
+          found = operatingSystem.name;
         }
       });
-      // commit('os', 'unknown');
+
+      if (found) {
+        commit('os', found);
+      } else {
+        commit('os', 'unknown');
+      }
+    },
+    getBrowser ({ commit }) {
+      const header = [
+        navigator.platform,
+        navigator.userAgent,
+        navigator.appVersion,
+        navigator.vendor
+      ];
+
+      const agent = header.join(' ');
+
+      let found = null;
+      browser.forEach(b => {
+        const regex = new RegExp(b.value, 'i');
+        if (regex.test(agent)) {
+          found = b.name;
+        }
+      });
+
+      if (found) {
+        commit('browser', found);
+      } else {
+        commit('browser', 'unknown');
+      }
     },
     async promptInstall ({ commit, state }) {
       if (state.installPrompt) {

@@ -19,6 +19,7 @@
 
       <v-card-text>
         <p>OS: {{ $store.getters['os'] }}</p>
+        <p>Browser: {{ $store.getters['browser'] }}</p>
         <p>{{ navigator.userAgent }}</p>
       </v-card-text>
     </v-card>

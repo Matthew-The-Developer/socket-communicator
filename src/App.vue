@@ -73,6 +73,7 @@ export default Vue.extend({
       this.$store.commit('installed', true);
     });
     this.$store.dispatch('getOS');
+    this.$store.dispatch('getBrowser');
   },
 });
 </script>
